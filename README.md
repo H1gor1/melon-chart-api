@@ -12,15 +12,15 @@ All credits to the creator: [hyunchel](https://github.com/hyunchel)
 
 1. Clone the repository to your local environment:
 
-   ```bash
+   ```
    git clone https://github.com/H1gor1/melon-chart-api.git
    ```
 
 2. Navigate to the project directory:
 
-  ```
-  cd melon-chart-api
-  ```
+   ```
+   cd melon-chart-api
+   ```
 
 3. Install dependencies:
 
