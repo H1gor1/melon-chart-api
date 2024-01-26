@@ -6,15 +6,18 @@
   "main": "index.js",
   "scripts": {
     "test": "ava",
+    "start": "node app.js",
     "lint": "eslint ."
   },
   "author": "Hyunchel Kim <hyunchel.inbox@gmail.com> (https://github.com/hyunchel/melon-chart-api)",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
-    "express": "^4.18.2",
     "cheerio": "^0.22.0",
+    "cors": "^2.8.5",
     "date-fns": "^1.28.3",
+    "express": "^4.18.2",
+    "heroku": "^8.7.1",
     "node-fetch": "^2.6.1",
     "querystring": "^0.2.0",
     "url-parse": "^1.1.8"
