@@ -1,6 +1,8 @@
 const express = require('express');
+const https = require('https');
+const fs = require('fs');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Importe o pacote cors
+const cors = require('cors');
 const Melon = require('./index');
 
 const app = express();
@@ -36,6 +38,13 @@ app.get('/api/melon/monthly', (req, res) => {
   melon.monthly().then(data => res.json(data)).catch(err => res.status(500).json({ error: err.message }));
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+// Configurar o servidor HTTPS
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.kcharts.live/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/api.kcharts.live/fullchain.pem', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
+
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(port, () => {
+  console.log(`Server is running at https://localhost:${port}`);
 });
